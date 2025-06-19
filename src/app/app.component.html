@@ -1,0 +1,25 @@
+<div class="app-container">
+  <!-- Home View -->
+  <div *ngIf="currentView === 'home'" class="home-container">
+    <div class="card">
+      <div class="card-header">
+        <h1 class="title">Welcome to Auth App</h1>
+        <p class="description">Choose an option to continue</p>
+      </div>
+      <div class="card-content">
+        <button (click)="showLogin()" class="btn btn-primary">Login</button>
+        <button (click)="showRegister()" class="btn btn-outline">Register</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Login View -->
+  <div *ngIf="currentView === 'login'">
+    <app-login (backToHome)="showHome()" (goToRegister)="showRegister()"></app-login>
+  </div>
+
+  <!-- Register View -->
+  <div *ngIf="currentView === 'register'">
+    <app-register (backToHome)="showHome()" (goToLogin)="showLogin()"></app-register>
+  </div>
+</div>
